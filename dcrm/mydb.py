@@ -1,22 +1,22 @@
-# Install Mysql on your computer
-# https://dev.mysql.com/downloads/installer/
-# pip install mysql
-# pip install mysql-connector
-# pip install mysql-connector-python 
+# # Install Mysql on your computer
+# # https://dev.mysql.com/downloads/installer/
+# # pip install mysql
+# # pip install mysql-connector
+# # pip install mysql-connector-python 
 
-import mysql.connector
+# import mysql.connector
 
-dataBase = mysql.connector.connect(
-	host = 'localhost',
-	user = 'root',
-	passwd = 'new_password'
+# dataBase = mysql.connector.connect(
+# 	host = 'localhost',
+# 	user = 'root',
+# 	passwd = 'new_password'
 
-	)
+# 	)
 
-# prepare a cursor object
-cursorObject = dataBase.cursor()
+# # prepare a cursor object
+# cursorObject = dataBase.cursor()
 
-# Create a database
-cursorObject.execute("CREATE DATABASE crm_mysqldb")
+# # Create a database
+# cursorObject.execute("CREATE DATABASE crm_mysqldb")
 
-print("All Done!, database created")
+# print("All Done!, database created")
