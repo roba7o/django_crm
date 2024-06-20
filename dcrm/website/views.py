@@ -2,10 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import Record
 
 # Create your views here.
 
 def home(request):
+    records = Record.objects.all()
+
+
     #Check to see if logging in (POST)
     if request.method == "POST":
         username = request.POST["username"]
@@ -20,7 +24,7 @@ def home(request):
             messages.success(request, "There was an error logging in, try again...")
             return redirect('home')
     else:
-        return render(request, 'website/home.html', {}) 
+        return render(request, 'website/home.html', {'records':records}) 
 
 
 def login_user(request):
@@ -38,7 +42,7 @@ def register_user(request):
             form.save()
             #Authenticate and login
             username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
+            password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, "You have successfully logged in ")
